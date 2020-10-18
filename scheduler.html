@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>About Us</title>
+		<title>Meeting Scheduler</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,7 +18,7 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">TimeSync</h1>
+          <h1 id="logo"><a href="index.html">TimeSync</a></h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html">Home</a></li>
@@ -42,21 +42,59 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>Meet the team</h2>
+							<h2>Meeting Scheduler</h2>
 						
 						</header>
 
 						<!-- Content -->
 							<section id="content">
 								<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-								<h3>We are a team of designers and developers passionate about building innovative and impactful solutions</h3>
-								<ul>
-									<li>Kerin - Student/ Programmer/ Joint Secretary NMIMS Entrepreneurship Summit'20</li>
-									<li>Harshita - Web developer/ GSSoC'20 Extended/ Project Lead @ AOS'20/ Mentor @SLoP, DSC-DAIICT</li>
-									<li>Drona - Ex-Deloitte/ Web developer/ MSc student</li>
-									<li>Ava - Student/ hacker</li>
-								
-								</ul>
+								<h3>Let's get started</h3>
+                
+                <button color="#F96547" onclick="getLocation()">Add your timezone</button>
+
+<p id="location"></p>
+
+<script>
+  
+var x = document.getElementById("location");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+  
+  function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+
+</script>
+                
+     
+          <p id = "timeOfLocation"></p>
+               
 								<p><img src="images/facts2.gif" alt="GIF" /></p>
 							</section>
 
